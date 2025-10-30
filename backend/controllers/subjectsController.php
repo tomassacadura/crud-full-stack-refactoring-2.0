@@ -25,13 +25,13 @@ function handleGet($conn)
         $limit = (int)$_GET['limit'];
         $offset = ($page - 1) * $limit;
 
-        $subject = getPaginatedSubjects($conn, $limit, $offset);
+        $subjects = getPaginatedSubjects($conn, $limit, $offset);
         $total = getTotalSubjects($conn);
 
         echo json_encode([
-            'subjects' => $subjects, // ya es array
-            'total' => $total        // ya es entero
-        ]);
+            'subjects' => $subjects,
+            'total' => $total
+    ]);
     }
     else
     {
