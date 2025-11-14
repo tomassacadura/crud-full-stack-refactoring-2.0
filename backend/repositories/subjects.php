@@ -46,6 +46,15 @@ function getSubjectById($conn, $id)
     return $result->fetch_assoc(); 
 }
 
+
+function getSubjectByName($conn, $name) {
+    $sql = "SELECT * FROM subjects WHERE name = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $name);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_assoc();
+}
+
 function createSubject($conn, $name) 
 {
     // Verificar si ya existe una materia con ese nombre
