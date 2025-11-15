@@ -9,6 +9,8 @@
 *    Iteration   : 1.0 ( prototype )
 */
 
+
+
 function getAllSubjects($conn) 
 {
     $sql = "SELECT * FROM subjects";
@@ -54,6 +56,8 @@ function getSubjectByName($conn, $name) {
     $stmt->execute();
     return $stmt->get_result()->fetch_assoc();
 }
+
+
 
 function createSubject($conn, $name) 
 {
